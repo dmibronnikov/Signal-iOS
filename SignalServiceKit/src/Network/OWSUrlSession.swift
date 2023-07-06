@@ -753,12 +753,14 @@ public class OWSURLSession: NSObject, OWSURLSessionProtocol {
 
         if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
            let serverTrust = challenge.protectionSpace.serverTrust {
-            if endpoint.securityPolicy.evaluateServerTrust(serverTrust, forDomain: challenge.protectionSpace.host) {
-                credential = URLCredential(trust: serverTrust)
-                disposition = .useCredential
-            } else {
-                disposition = .cancelAuthenticationChallenge
-            }
+            credential = URLCredential(trust: serverTrust)
+            disposition = .useCredential
+//            if endpoint.securityPolicy.evaluateServerTrust(serverTrust, forDomain: challenge.protectionSpace.host) {
+//                credential = URLCredential(trust: serverTrust)
+//                disposition = .useCredential
+//            } else {
+//                disposition = .cancelAuthenticationChallenge
+//            }
         } else {
             disposition = .performDefaultHandling
         }
