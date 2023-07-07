@@ -644,7 +644,9 @@ public extension OWSTableItem {
     ) -> UIView {
         return buildIconInCircleView(
             icon: icon,
-            innerIconSize: innerIconSize
+            iconSize: nil,
+            innerIconSize: innerIconSize,
+            iconTintColor: nil
         )
     }
 
@@ -655,6 +657,7 @@ public extension OWSTableItem {
     ) -> UIView {
         return buildIconInCircleView(
             icon: icon,
+            iconSize: nil,
             innerIconSize: innerIconSize,
             iconTintColor: iconTintColor
         )
